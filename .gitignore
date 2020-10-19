@@ -1,0 +1,7 @@
+node_modules
+.idea
+.code
+.firebase
+build
+public
+dist

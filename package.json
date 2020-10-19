@@ -1,0 +1,53 @@
+{
+  "name": "currency-rate",
+  "version": "1.0.0",
+  "description": "currency rate app",
+  "private": true,
+  "browserslist": "> 0.25%, not dead",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development  webpack --mode development",
+    "build": "cross-env NODE_ENV=production  webpack --mode production",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m-a-r-a-t/currency-rate.git"
+  },
+  "keywords": [
+    "js",
+    "javascript"
+  ],
+  "author": "Marat Sabitov <razorlevel@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/m-a-r-a-t/currency-rate/issues"
+  },
+  "homepage": "https://github.com/m-a-r-a-t/currency-rate#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.2.1",
+    "cross-env": "^7.0.2",
+    "css-loader": "^5.0.0",
+    "file-loader": "^6.1.1",
+    "html-webpack-plugin": "^4.5.0",
+    "mini-css-extract-plugin": "^1.0.0",
+    "node-sass": "^4.14.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "react-hot-loader": "^4.13.0",
+    "sass-loader": "^10.0.3",
+    "terser-webpack-plugin": "^5.0.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "normalize.css": "^8.0.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  }
+}
