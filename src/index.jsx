@@ -1,11 +1,8 @@
+// eslint-disable-next-line import/no-unresolved
 import '@/styles.scss'
 import React from 'react'
-import {render} from 'react-dom'
+import { render } from 'react-dom'
 
-const App = () => {
-    return <h1>Hello</h1> 
-}
+const App = () => <h1>Hello</h1>
 
-render(<App/>, document.getElementById('app'))
-
-
+render(<App />, document.getElementById('app'))
