@@ -1,11 +1,7 @@
 import '@/styles.scss'
 import React from 'react'
-import {render} from 'react-dom'
+import { render } from 'react-dom'
+import 'animate.css'
+import App from '@/components/App'
 
-const App = () => {
-    return <h1>Hello</h1> 
-}
-
-render(<App/>, document.getElementById('app'))
-
-
+render(<App />, document.getElementById('app'))
