@@ -51,7 +51,7 @@ const babelOptinos = (preset) => {
   return opts
 }
 
-const jsLoaders = (option ) => {
+const jsLoaders = (option) => {
   const loaders = [
     {
       loader: 'babel-loader',
@@ -76,6 +76,7 @@ module.exports = {
     publicPath: '/',
   },
   resolve: {
+    extensions: ['.js', '.jsx', '.scss'],
     alias: {
       '@': path.resolve(__dirname, 'src'),
     },
