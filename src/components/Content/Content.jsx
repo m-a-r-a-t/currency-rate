@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
 import AllCurrency from './AllCurrency/AllCurrency'
 import Chart from './Chart/Chart'
+import Converter from './Converter/Converter'
 
 const proxyurl = 'https://cors-anywhere.herokuapp.com/'
 const url = 'https://www.cbr-xml-daily.ru/daily_json.js'
@@ -20,6 +21,7 @@ const Content = () => {
       <Switch>
         <Route exact path="/" render={() => <AllCurrency state={state} />} />
         <Route path="/chart" render={() => <Chart />} />
+        <Route path="/converter" render={() => <Converter state={state}/>} />
       </Switch>
     </ContentContainer>
   )

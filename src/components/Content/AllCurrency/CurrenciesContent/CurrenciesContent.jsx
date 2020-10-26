@@ -3,10 +3,9 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import './CurrenciesContent.scss'
 
-const CurrenciesContent = ({
-  CharCode, Nominal, Name, Value, Previous, NumCode, ID,
-}) => {
-  const changesAndPercentClass = () => (Value > Previous ? 'green center' : 'red center')
+const CurrenciesContent = ({ CharCode, Nominal, Name, Value, Previous }) => {
+  const changesAndPercentClass = () =>
+    Value > Previous ? 'green center' : 'red center'
 
   return (
     <CurrenciesContentWrap>
@@ -18,7 +17,8 @@ const CurrenciesContent = ({
         {(Value > Previous ? '+' : '') + (Value - Previous).toFixed(2)}
       </div>
       <div className={changesAndPercentClass()}>
-        {(Value > Previous ? '+' : '') + ((Value * 100) / Previous - 100).toFixed(2)}
+        {(Value > Previous ? '+' : '') +
+          ((Value * 100) / Previous - 100).toFixed(2)}
       </div>
     </CurrenciesContentWrap>
   )
@@ -26,13 +26,10 @@ const CurrenciesContent = ({
 
 CurrenciesContent.propTypes = {
   CharCode: PropTypes.string.isRequired,
-  ID: PropTypes.string.isRequired,
   Name: PropTypes.string.isRequired,
   Nominal: PropTypes.string.isRequired,
-  NumCode: PropTypes.string.isRequired,
   Previous: PropTypes.string.isRequired,
   Value: PropTypes.string.isRequired,
-
 }
 
 const CurrenciesContentWrap = styled.div`
