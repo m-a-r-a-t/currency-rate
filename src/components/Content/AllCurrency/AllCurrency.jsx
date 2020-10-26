@@ -4,10 +4,10 @@ import PropTypes from 'prop-types'
 import CurrenciesContent from './CurrenciesContent/CurrenciesContent'
 import Title from './CurrenciesContent/Title'
 
-const AllCurrency = ({ state }) => (
+const AllCurrency = ({ currencies }) => (
   <AllCurrencyWrap className="animate__animated animate__backInUp">
     <Title />
-    {state.map((item) => {
+    {currencies.map((item) => {
       return (
         <CurrenciesContent
           CharCode={item.CharCode}
@@ -22,7 +22,7 @@ const AllCurrency = ({ state }) => (
 )
 
 AllCurrency.propTypes = {
-  state: PropTypes.arrayOf({
+  currencies: PropTypes.arrayOf({
     CharCode: PropTypes.string,
     ID: PropTypes.string,
     Name: PropTypes.string,

@@ -1,28 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import ConvertArea from './ConvertArea/ConvertArea'
 
-const Converter = ({ state }) => {
-  const [converterValue1, setConverterValue1] = useState('')
-  const [converterValue2, setConverterValue2] = useState('')
-
-  const onChangeInput = (e, name ) => {
-    setConverterValue1(e.target.value)
-    setConverterValue2(e.target.value)
-  }
-
+const Converter = ({ currencies, converters, dispatch }) => {
   return (
     <ConveterWrap className="animate__animated animate__zoomIn">
       <ConvertArea
-        onChangeInput={onChangeInput}
-        value={converterValue1}
-        state={state}
+        converter={converters.converter1}
+        dispatch={dispatch}
+        state={currencies}
+        type="FIRST"
       />
       <ConvertArea
-        onChangeInput={onChangeInput}
-        value={converterValue2}
-        state={state}
+        converter={converters.converter2}
+        dispatch={dispatch}
+        state={currencies}
+        type="SECOND"
       />
     </ConveterWrap>
   )
@@ -38,7 +32,7 @@ const ConveterWrap = styled.div`
 `
 
 Converter.propTypes = {
-  state: PropTypes.arrayOf({
+  currencies: PropTypes.arrayOf({
     CharCode: PropTypes.string,
     ID: PropTypes.string,
     Name: PropTypes.string,
@@ -47,4 +41,20 @@ Converter.propTypes = {
     Previous: PropTypes.string,
     Value: PropTypes.string,
   }).isRequired,
+
+  converters: PropTypes.arrayOf({
+    converter1: {
+      Value: PropTypes.number,
+      CharCode: PropTypes.string,
+      Nominal: PropTypes.number,
+      inputValue: PropTypes.string,
+    },
+    converter2: {
+      Value: PropTypes.number,
+      CharCode: PropTypes.string,
+      Nominal: PropTypes.number,
+      inputValue: PropTypes.string,
+    },
+  }).isRequired,
+  dispatch: PropTypes.func.isRequired,
 }

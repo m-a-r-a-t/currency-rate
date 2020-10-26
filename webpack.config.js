@@ -79,6 +79,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.scss'],
     alias: {
       '@': path.resolve(__dirname, 'src'),
+      '{}': path.resolve(__dirname, 'src/redux'),
     },
   },
   optimization: optimization(),

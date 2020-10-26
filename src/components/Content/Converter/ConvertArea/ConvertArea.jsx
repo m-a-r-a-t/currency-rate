@@ -1,16 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import converterActionCreator from '{}/converterReducer/converterActionCreator'
 
-const ConvertArea = ({ state, value, onChangeInput }) => {
+const ConvertArea = ({ state, converter, dispatch, type }) => {
+  const onChangeInput = (e) => {
+    dispatch(converterActionCreator(`CHANGE-${type}-INPUT`, e.target.value))
+  }
+  const onChangeSelect = (e) => {
+    dispatch(converterActionCreator(`CHANGE-${type}-INPUT`, e.target.value))
+  }
   return (
     <SelectWrap>
-      <Select name="" id="">
+      <Select onChange={onChangeSelect} name="" id="">
         {state.map((item) => (
-          <option label={`${item.CharCode}`} />
+          <option value={`${item.CharCode}`} label={`${item.CharCode}`} />
         ))}
       </Select>
-      <InputWrap onChange={onChangeInput} value={value} type="text" />
+      <InputWrap
+        onChange={onChangeInput}
+        value={converter.inputValue}
+        type="text"
+      />
     </SelectWrap>
   )
 }
@@ -25,8 +36,14 @@ ConvertArea.propTypes = {
     Previous: PropTypes.string,
     Value: PropTypes.string,
   }).isRequired,
-  value: PropTypes.string.isRequired,
-  onChangeInput: PropTypes.func.isRequired,
+  converter: PropTypes.shape({
+    Value: PropTypes.number,
+    CharCode: PropTypes.string,
+    Nominal: PropTypes.number,
+    inputValue: PropTypes.string,
+  }).isRequired,
+  dispatch: PropTypes.func.isRequired,
+  type: PropTypes.string.isRequired,
 }
 
 export default ConvertArea
