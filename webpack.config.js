@@ -79,11 +79,13 @@ module.exports = {
     extensions: ['.js', '.jsx', '.scss'],
     alias: {
       '@': path.resolve(__dirname, 'src'),
+      '{}': path.resolve(__dirname, 'src/redux'),
     },
   },
   optimization: optimization(),
   devServer: {
     port: 4200,
+    historyApiFallback: true,
     hot: isDev,
   },
   plugins: [
