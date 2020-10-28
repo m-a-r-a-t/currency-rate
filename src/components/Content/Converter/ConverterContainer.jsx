@@ -12,7 +12,8 @@ const mapStateToProps = (state) => {
 }
 const mapStateToDispatch = (dispatch) => {
   return {
-    convert: (value) => dispatch(converterActionCreator('CHANGE-FIRST-INPUT',value)),
+    convert: (value) =>
+      dispatch(converterActionCreator('CHANGE-FIRST-INPUT', value)),
   }
 }
 

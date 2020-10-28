@@ -36,15 +36,20 @@ const Content = ({ currencies, initState, converters, dispatch }) => {
 }
 
 Content.propTypes = {
-  currencies: PropTypes.arrayOf({
-    CharCode: PropTypes.string,
-    ID: PropTypes.string,
-    Name: PropTypes.string,
-    Nominal: PropTypes.string,
-    NumCode: PropTypes.string,
-    Previous: PropTypes.string,
-    Value: PropTypes.string,
-  }).isRequired,
+  currencies: PropTypes.objectOf([
+    {
+      key: PropTypes.string.isRequired,
+      value: PropTypes.shape({
+        CharCode: PropTypes.string,
+        ID: PropTypes.string,
+        Name: PropTypes.string,
+        Nominal: PropTypes.string,
+        NumCode: PropTypes.string,
+        Previous: PropTypes.string,
+        Value: PropTypes.string,
+      }),
+    },
+  ]).isRequired,
 
   initState: PropTypes.func.isRequired,
 

@@ -1,20 +1,36 @@
-import React from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import converterActionCreator from '{}/converterReducer/converterActionCreator'
 
-const ConvertArea = ({ state, converter, dispatch, type }) => {
+const ConvertArea = ({ currencies, converter, dispatch, type }) => {
   const onChangeInput = (e) => {
-    dispatch(converterActionCreator(`CHANGE-${type}-INPUT`, e.target.value))
+    dispatch(converterActionCreator(`CHANGE-INPUT`, e.target.value, type))
   }
   const onChangeSelect = (e) => {
-    dispatch(converterActionCreator(`CHANGE-${type}-INPUT`, e.target.value))
+    dispatch(
+      converterActionCreator(
+        `CHANGE-SELECT`,
+        currencies.get(e.target.value),
+        type
+      )
+    )
   }
+
+  useEffect(() => {
+    dispatch(converterActionCreator('INIT-CONVERTERS', {   ...currencies.get('RUS'), }))
+  }, [])
+
   return (
     <SelectWrap>
-      <Select onChange={onChangeSelect} name="" id="">
-        {state.map((item) => (
-          <option value={`${item.CharCode}`} label={`${item.CharCode}`} />
+      <Select
+        onChange={onChangeSelect}
+        name=""
+        value={converter.CharCode}
+        id="">
+        {Object.values(Object.fromEntries(currencies)).map((item) => (
+          <option value={item.CharCode} label={item.CharCode} />
         ))}
       </Select>
       <InputWrap
@@ -27,7 +43,7 @@ const ConvertArea = ({ state, converter, dispatch, type }) => {
 }
 
 ConvertArea.propTypes = {
-  state: PropTypes.arrayOf({
+  currencies: PropTypes.arrayOf({
     CharCode: PropTypes.string,
     ID: PropTypes.string,
     Name: PropTypes.string,

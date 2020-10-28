@@ -29,7 +29,7 @@ CurrenciesContent.propTypes = {
   Name: PropTypes.string.isRequired,
   Nominal: PropTypes.string.isRequired,
   Previous: PropTypes.string.isRequired,
-  Value: PropTypes.string.isRequired,
+  Value: PropTypes.number.isRequired,
 }
 
 const CurrenciesContentWrap = styled.div`

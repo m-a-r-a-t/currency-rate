@@ -9,14 +9,14 @@ const Converter = ({ currencies, converters, dispatch }) => {
       <ConvertArea
         converter={converters.converter1}
         dispatch={dispatch}
-        state={currencies}
-        type="FIRST"
+        currencies={currencies}
+        type="1"
       />
       <ConvertArea
         converter={converters.converter2}
         dispatch={dispatch}
-        state={currencies}
-        type="SECOND"
+        currencies={currencies}
+        type="2"
       />
     </ConveterWrap>
   )

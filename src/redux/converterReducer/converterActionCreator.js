@@ -1,7 +1,8 @@
-const converterActionCreator = (type, value) => {
+const converterActionCreator = (type, value, id) => {
   return {
     type,
     value,
+    id,
   }
 }
 
